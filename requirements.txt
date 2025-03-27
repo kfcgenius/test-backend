@@ -4,3 +4,4 @@ mysql-connector-python
 pylint
 bandit
 pytest
+httpx
