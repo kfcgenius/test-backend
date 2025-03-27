@@ -5,7 +5,7 @@ from main import app
 client = TestClient(app)
 
 
-def generate_random_string():
+def test_generate_random_string():
     response = client.get("/strings/random")
 
     assert response.status_code == 200
