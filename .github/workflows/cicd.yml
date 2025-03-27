@@ -32,7 +32,7 @@ jobs:
         run: bandit -r main.py
 
       - name: Run tests
-        run: echo "Тесты пройдены"
+        run: pytest
 
   sonarqube:
     name: SonarQube
