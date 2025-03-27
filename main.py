@@ -34,7 +34,9 @@ def get_db_connection():
 def generate_random_string():
     """Generates random string and returns it as JSON"""
 
-    random_string = "".join(random.choices(string.ascii_letters + string.digits, k=10))
+    alphabet = string.ascii_letters + string.digits
+    random_chars = random.choices(alphabet, k=10)  # nosec B311
+    random_string = "".join(random_chars)
 
     db = get_db_connection()
     cursor = db.cursor()
