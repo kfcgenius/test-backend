@@ -1,3 +1,5 @@
+"""Main module with FastAPI routes"""
+
 import os
 import random
 import string
@@ -18,6 +20,8 @@ app.add_middleware(
 
 
 def get_db_connection():
+    """Returns connection to database"""
+
     return mysql.connector.connect(
         host=os.environ["BACKEND_DB_HOST"],
         user=os.environ["BACKEND_DB_USER"],
@@ -28,6 +32,8 @@ def get_db_connection():
 
 @app.get("/strings/random")
 def generate_random_string():
+    """Generates random string and returns it as JSON"""
+
     random_string = "".join(random.choices(string.ascii_letters + string.digits, k=10))
 
     db = get_db_connection()
